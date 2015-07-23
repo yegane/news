@@ -20,7 +20,7 @@ $(document).ready(function($) {
 	h   = $(window).height();
 	buttonFooter =  parseInt($('.setting-page footer ').height())+10;
 
-	$('.content').height(h_d);
+	$('.content , .wrap-page').height(h_d);
 
 	$('.content').css('transform', 'translate3d(0,'+cal()+'px,0)');
 
@@ -105,14 +105,13 @@ $(document).ready(function($) {
 				$('.content').css('display', 'none');
 				$('.details-news').append(all_of_new);
 				$('.details-news > div').last().attr('id', 'detail-'+id);
-				$('.icono-hamburger').parent().css('display', 'none');
-				$('.icono-caretLeft').parent().css('display', 'block');
+				$('.ion-navicon-round').parent().css('display', 'none');
+				$('.ion-ios-arrow-thin-left').parent().css('display', 'block');
 
 				$.ajax({
 					url: 'http://sdi.cloudware.ir/json.php',
 					dataType: 'json',
-					crossDomain : true,
-					cache : true,
+					cache : true
 				})
 					.done(function() {
 						$('#detail-'+id+' .title').text(news[id-1].title);
@@ -144,8 +143,8 @@ $(document).ready(function($) {
 						resize = true;
 						home_page = true;
 						$('.content').css('display', 'block');
-						$('.icono-caretLeft').parent().css('display', 'none');
-						$('.icono-hamburger').parent().css('display', 'block');
+						$('.ion-ios-arrow-thin-left').parent().css('display', 'none');
+						$('.ion-navicon-round').parent().css('display', 'block');
 						$('.details-news .all-of-news , .back').remove();
 						$('.modal').addClass('show-modal');
 						var modal = new Modal();
@@ -1033,7 +1032,7 @@ $(document).ready(function($) {
 		$('.content > div:nth-child('+up+')').css('display', 'block');
 
 
-		$('.content').height(h_d);
+		$('.content , .wrap-page').height(h_d);
 
 		$('.content').css('transform', 'translate3d(0,'+cal()+'px,0)');
 
@@ -1069,8 +1068,8 @@ $(document).ready(function($) {
 				$('.content').css('display', 'none');
 				$('.details-news').append(all_of_new);
 				$('.details-news > div').last().attr('id', 'detail-'+id);
-				$('.icono-hamburger').parent().css('display', 'none');
-				$('.icono-caretLeft').parent().css('display', 'block');
+				$('.ion-navicon-round').parent().css('display', 'none');
+				$('.ion-ios-arrow-thin-left').parent().css('display', 'block');
 
 				$.ajax({
 					url: 'http://sdi.cloudware.ir/json.php',
@@ -1108,8 +1107,8 @@ $(document).ready(function($) {
 						resize = true;
 						home_page = true;
 						$('.content').css('display', 'block');
-						$('.icono-caretLeft').parent().css('display', 'none');
-						$('.icono-hamburger').parent().css('display', 'block');
+						$('.ion-ios-arrow-thin-left').parent().css('display', 'none');
+						$('.ion-navicon-round').parent().css('display', 'block');
 						$('.details-news .all-of-news , .back').remove();
 						$('.modal').addClass('show-modal');
 						var modal = new Modal();
@@ -1237,8 +1236,8 @@ $(document).ready(function($) {
 			$('.details-news').css('display', 'none');
 			$('.content').css('transform', 'translate3d(0,'+cal()+'px,0)');
 			$('.content').css('display', 'block');
-			$('.icono-caretLeft').parent().css('display', 'none');
-			$('.icono-hamburger').parent().css('display', 'block');
+			$('.ion-ios-arrow-thin-left').parent().css('display', 'none');
+			$('.ion-navicon-round').parent().css('display', 'block');
 			$(window).scrollTop(0);
 			$('html').removeClass('scroll');
 			resize = true;
@@ -1270,8 +1269,8 @@ $(document).ready(function($) {
 		setTimeout(function(){
 			$('.content').css('display', 'none');
 			$('.setting-page').css('display', 'block');
-		    $('.icono-hamburger').parent().css('display', 'none');
-			$('.icono-caretLeft').parent().css('display', 'block');} , 250);
+		    $('.ion-navicon-round').parent().css('display', 'none');
+			$('.ion-ios-arrow-thin-left').parent().css('display', 'block');} , 250);
 	});
 
 	//Setting page
@@ -1301,8 +1300,8 @@ $(document).ready(function($) {
 		event.preventDefault();
 		$('.setting-page').css('display', 'none');
 		$('.content').css('display', 'block');
-		$('.icono-caretLeft').parent().css('display', 'none');
-		$('.icono-hamburger').parent().css('display', 'block');
+		$('.ion-ios-arrow-thin-left').parent().css('display', 'none');
+		$('.ion-navicon-round').parent().css('display', 'block');
 		keyword.length = 0;
 		$('.setting-page li').each(function(index, el) {
 			if($(this).hasClass('select-keyword')){
@@ -1311,14 +1310,14 @@ $(document).ready(function($) {
 		});
 	});
 
-	$('.icono-hamburger').on('click', function(event) {
+	$('.ion-navicon-round').on('click', function(event) {
 		event.preventDefault();
 		$('.left-menu').addClass('show-left-menu');
 		home_page = false;
 		
 	});
 
-	$('.icono-caretLeft').on('click' , function(event) {
+	$('.ion-ios-arrow-thin-left').on('click' , function(event) {
 		event.preventDefault();
 		if( $('.setting-page').css('display') == 'none' ){
 			$('.details-news').css('display', 'none');
@@ -1328,8 +1327,8 @@ $(document).ready(function($) {
 			resize = true;
 			home_page = true;
 			$('.content').css('display', 'block');
-			$('.icono-caretLeft').parent().css('display', 'none');
-			$('.icono-hamburger').parent().css('display', 'block');
+			$('.ion-ios-arrow-thin-left').parent().css('display', 'none');
+			$('.ion-navicon-round').parent().css('display', 'block');
 			$('.details-news .all-of-news , .back').remove();
 		}
 		else {
@@ -1345,8 +1344,8 @@ $(document).ready(function($) {
 					}
 				});
 				$('.content').css('display', 'block');
-				$('.icono-caretLeft').parent().css('display', 'none');
-				$('.icono-hamburger').parent().css('display', 'block');
+				$('.ion-ios-arrow-thin-left').parent().css('display', 'none');
+				$('.ion-navicon-round').parent().css('display', 'block');
 			}
 		}
 	});
@@ -1493,7 +1492,7 @@ $(document).ready(function($) {
 			}else{
 				$('.modal').addClass("show-modal");
 				var modal = new Modal();
-				modal.setTextModal('خطا در اربیاط با سرور')
+				modal.setTextModal('اتصال ایترنت را بررسی نمایید.')
 				$('.text-alert').text(modal.getTextModal());
 				modal.setTextButton('مجدد تلاش کردن');
 				$('.ok').text(modal.getTextButton());
