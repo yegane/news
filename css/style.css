@@ -245,7 +245,6 @@ header {
   font-family: "en";
 }
 header .click, header .clickBack {
-  float: left;
   display: none;
   position: absolute;
 }
