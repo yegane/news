@@ -209,19 +209,6 @@ p,
   width: inherit;
 }
 
-[class*=icono-] {
-  color: #000;
-  margin: 0;
-}
-
-.click {
-  top: 9px;
-}
-
-.clickBack {
-  top: 7px;
-}
-
 .icono-caretLeft:before, .icono-caretLeft:after {
   width: 11px;
 }
@@ -241,13 +228,21 @@ header {
   text-align: center;
   -webkit-box-shadow: 0 1px 4px 0px #7B7373;
   box-shadow: 0 1px 4px 0px #7B7373;
-  padding: 10px;
+  /*padding: 10px;*/
+    height: 37px;
+    line-height: 34px;
   font-family: "en";
 }
 header .click, header .clickBack {
   display: none;
   position: absolute;
   z-index: 5;
+    left: 15px;
+}
+
+.click i , .clickBack i{
+    color: #000;
+    margin: 0;
 }
 header .title {
   position: absolute;
@@ -1013,7 +1008,6 @@ header .title {
   height: 7px;
   -webkit-transition: all 0.15s ease-in-out 0s;
   border-radius: 50%;
-  -webkit-transition: all 0.15s ease-in-out 0s;
   transition: all 0.15s ease-in-out 0s;
   background: lightcoral;
 }
