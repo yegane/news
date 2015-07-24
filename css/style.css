@@ -220,7 +220,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 4;
+  z-index: 3;
   text-align: center;
   -webkit-box-shadow: 0 1px 4px 0px #7B7373;
   box-shadow: 0 1px 4px 0px #7B7373;
@@ -234,8 +234,9 @@ header .click, header .clickBack {
   left: 15px;
 }
 header .click i, header .clickBack i {
-  font-size: 1.9em;
-  line-height: 1.8em;
+  font-size: 1.5em;
+  line-height: 2.2em;
+  color: #546990;
 }
 header .title {
   position: absolute;
@@ -654,6 +655,25 @@ header .title {
   width: 90%;
   margin: 0 auto;
 }
+.login-page label {
+  position: relative;
+}
+.login-page label:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background: #F0616C;
+  bottom: -5px;
+  right: 0;
+  -webkit-transition: width 0.25s ease-in-out 0s;
+  transition: width 0.25s ease-in-out 0s;
+}
+.login-page .activeText:before, .login-page .activePass:before {
+  width: 100%;
+  -webkit-transition: width 0.25s ease-in-out 0s;
+  transition: width 0.25s ease-in-out 0s;
+}
 .login-page input[type="text"], .login-page input[type="password"] {
   width: 100%;
   margin: 8px 0;
@@ -663,9 +683,11 @@ header .title {
   font-family: 'fa';
   direction: rtl;
   text-align: right;
-  padding: 3px 8px;
+  padding: 5px 8px;
   background: none;
   font-size: .9em;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
 }
 @media screen and (max-height: 301px) {
   .login-page input[type="text"], .login-page input[type="password"] {
@@ -675,7 +697,7 @@ header .title {
 .login-page input[type="submit"] {
   border: none;
   outline: none;
-  background: tomato;
+  background: #88B7D8;
   width: 100%;
   padding: 5px 0;
   margin: 20px 0;
@@ -739,7 +761,7 @@ header .title {
   float: right;
 }
 .left-menu .setting span {
-  margin: 6px;
+  margin: 8px;
   float: right;
 }
 .left-menu .keyword {
@@ -991,8 +1013,8 @@ header .title {
   width: 7px;
   font-size: 1.5em;
   height: 7px;
-  -webkit-transition: all 0.15ss ease-in-out 0s;
-  transition: all 0.15ss ease-in-out 0s;
+  -webkit-transition: all 0.15s ease-in-out 0s;
+  transition: all 0.15s ease-in-out 0s;
   border-radius: 50%;
   background: lightcoral;
 }
@@ -1018,14 +1040,13 @@ header .title {
   height: 200px;
   background: #E7E5E5;
   border-radius: 3px;
-  padding: 5px;
   direction: rtl;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   margin: auto;
-  z-index: 2;
+  z-index: 5;
   -webkit-box-shadow: 0 0 2px 1px #000;
   box-shadow: 0 0 5px 4px #CBC1C1;
   -webkit-transition: all 0.12s ease-in-out 0s;
@@ -1050,11 +1071,47 @@ header .title {
   width: 100%;
   padding: 11px;
   text-align: center;
-  background: rgba(96, 161, 181, 0.72);
+  color: #626262;
+  border-top: 1px solid #CFC8C8;
+}
+.modal .header {
+  position: relative;
+  background: #e91e63;
+  padding: 20px;
+  border-radius: 3px 3px 0 0;
+}
+.modal i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  font-size: 2em;
   color: #fff;
+  width: 50px;
+  text-align: center;
 }
 
 .show-modal {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
+}
+
+/*------------------
+  Dark
+--------------------*/
+.dark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #555555;
+  z-index: 4;
+  opacity: .5;
+  display: none;
+}
+
+.show-dark {
+  display: block;
 }
