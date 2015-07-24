@@ -34,6 +34,11 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 //        app.receivedEvent('deviceready');
+        var pushNotification = window.plugins.pushNotification;
+
+        pushNotification.register(
+//            succ
+        )
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

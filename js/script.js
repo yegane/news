@@ -20,7 +20,8 @@ $(document).ready(function($) {
 	h   = $(window).height();
 	buttonFooter =  parseInt($('.setting-page footer ').height())+10;
 
-	$('.content , .wrap-page').height(h_d);
+	$('.content').height(h_d);
+    $('.wrap-page').height(h);
 
 	$('.content').css('transform', 'translate3d(0,'+cal()+'px,0)');
 
@@ -80,15 +81,20 @@ $(document).ready(function($) {
 			$('.content > div:nth-child('+(help+1)+')').css('display', 'none');
 		}
 
+
+        $('.show-dark').on('tap' , function(e){
+            e.preventDefault();
+            if($('.left-menu').hasClass('show-left-menu')){
+                $('.left-menu').removeClass('show-left-menu');
+                $(this).removeClass('show-dark');
+                setTimeout(function(){
+                    home_page = true;
+                } , 250);
+            }
+        });
 		
 		$('.content > *').on('tap' , function(e){
 			e.preventDefault();
-			if($('.left-menu').hasClass('show-left-menu')){
-				$('.left-menu').removeClass('show-left-menu');
-				setTimeout(function(){
-					home_page = true;
-				} , 250);
-			}
 
 			if(home_page == true){
 				$('.details-news').css('transform', 'translate3d(0,'+(cal()+2)+'px,0)');
@@ -148,7 +154,7 @@ $(document).ready(function($) {
 						$('.details-news .all-of-news , .back').remove();
 						$('.modal').addClass('show-modal');
 						var modal = new Modal();
-						modal.setTextModal('خطا در اربیاط با سرور')
+						modal.setTextModal('خطا در ارتباط با سرور')
 						$('.text-alert').text(modal.getTextModal());
 						modal.setTextButton('بستن');
 						$('.ok').text(modal.getTextButton());
@@ -1032,9 +1038,11 @@ $(document).ready(function($) {
 		$('.content > div:nth-child('+up+')').css('display', 'block');
 
 
-		$('.content , .wrap-page').height(h_d);
+		$('.content').height(h_d);
+        $('.wrap-page').height(h);
 
-		$('.content').css('transform', 'translate3d(0,'+cal()+'px,0)');
+
+        $('.content').css('transform', 'translate3d(0,'+cal()+'px,0)');
 
 		$('.notification , .setting-page').css('height', h_d);
 
@@ -1044,15 +1052,19 @@ $(document).ready(function($) {
 		$('.notification , .setting-page').css('height', h_d);
 		$('.notification ul').css('height' , h_d-110 );
 
+        $('.show-dark').on('tap' , function(e){
+            e.preventDefault();
+            if($('.left-menu').hasClass('show-left-menu')){
+                $('.left-menu').removeClass('show-left-menu');
+                $(this).removeClass('show-dark');
+                setTimeout(function(){
+                    home_page = true;
+                } , 250);
+            }
+        });
+
 		$('.content > *').on('tap' , function(e){
 			e.preventDefault();
-			if($('.left-menu').hasClass('show-left-menu')){
-				$('.left-menu').removeClass('show-left-menu');
-				setTimeout(function(){
-					home_page = true;
-				} , 250);
-			}
-
 			if(home_page == true){
 				$('.details-news').css('transform', 'translate3d(0,'+(cal()+2)+'px,0)');
 				$('.loading').css('display', 'block');
@@ -1251,7 +1263,7 @@ $(document).ready(function($) {
 	$('.loading').height($('.loading').width());
 
 	// login-page
-	$('input[type=submit]').on('click', function(event) {
+	$('input[type=submit]').on('tap', function(event) {
 		event.preventDefault();
 		setTimeout(function(){
 			$('.login-page').css('display', 'none');
@@ -1261,13 +1273,32 @@ $(document).ready(function($) {
 		} , 1000);
 	});
 
+    $('.login-page input[type=text]').on('tap' , function(e){
+        console.log(e);
+        if($('.login-page input[type=password]').parent().hasClass('activePass')){
+                $('.login-page input[type=password]').parent().removeClass();
+            }
+            $(this).parent().addClass("activeText");
+    });
+
+    $('.login-page input[type=password]').on('tap' , function(e){
+        console.log(e);
+        if($('.login-page input[type=text]').parent().hasClass('activeText')){
+            $('.login-page input[type=text]').parent().removeClass();
+        }
+        $(this).parent().addClass("activePass");
+    });
+
+
 	//Left menu
-	$(".left-menu .setting").on('click', function(event) {
+	$(".left-menu .setting").on('tap', function(event) {
 		event.preventDefault();
 		$('.left-menu').removeClass('show-left-menu');
 		home_page = true;
 		setTimeout(function(){
 			$('.content').css('display', 'none');
+            $('.dark').removeClass('show-dark');
+            $('.loading-other-news').removeClass('.show-loading-other-news')
 			$('.setting-page').css('display', 'block');
 		    $('.ion-navicon-round').parent().css('display', 'none');
 			$('.ion-ios-arrow-thin-left').parent().css('display', 'block');} , 250);
@@ -1296,7 +1327,7 @@ $(document).ready(function($) {
 		}
 	});
 
-	$('.setting-page > footer').on('click', '.cancle' , function(event) {
+	$('.setting-page > footer').on('tap', '.cancle' , function(event) {
 		event.preventDefault();
 		$('.setting-page').css('display', 'none');
 		$('.content').css('display', 'block');
@@ -1310,14 +1341,15 @@ $(document).ready(function($) {
 		});
 	});
 
-	$('.ion-navicon-round').on('click', function(event) {
+	$('.ion-navicon-round').on('tap', function(event) {
 		event.preventDefault();
+        $('.dark').addClass("show-dark");
 		$('.left-menu').addClass('show-left-menu');
 		home_page = false;
 		
 	});
 
-	$('.ion-ios-arrow-thin-left').on('click' , function(event) {
+	$('.ion-ios-arrow-thin-left').on('tap' , function(event) {
 		event.preventDefault();
 		if( $('.setting-page').css('display') == 'none' ){
 			$('.details-news').css('display', 'none');
@@ -1350,7 +1382,7 @@ $(document).ready(function($) {
 		}
 	});
 
-	$('.setting-page > footer').on('click', '.next-step', function(event) {
+	$('.setting-page > footer').on('tap', '.next-step', function(event) {
 		event.preventDefault();
 		var s = 0;
 		for(var i=0 ; i<keyword.length ; i++){
@@ -1440,6 +1472,7 @@ $(document).ready(function($) {
 	$('.modal').on('click' , '.again' , function(){
 		connectToServer();
 		$('.modal').removeClass('show-modal , again');
+        $('.dark').removeClass('show-dark');
 	});
 	//  class modal
 
@@ -1447,6 +1480,7 @@ $(document).ready(function($) {
 		this.textModal ="";
 		this.textButton ="";
 	}
+
 
 	Modal.prototype.setTextModal = function(str){
 		this.textModal = str;
@@ -1490,6 +1524,7 @@ $(document).ready(function($) {
 				Initialize();
 				
 			}else{
+                $('.dark').addClass('show-dark');
 				$('.modal').addClass("show-modal");
 				var modal = new Modal();
 				modal.setTextModal('اتصال ایترنت را بررسی نمایید.')
