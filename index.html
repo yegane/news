@@ -57,6 +57,8 @@
         </div>
     </div>
 
+    <div class="dark"></div>
+
     <div class="wrap-page">
         <header class="clearfix">
             <div class="click">
@@ -84,11 +86,17 @@
         </div>
 
         <div class="login-page" data-role="login-page">
-            <img class="img-responsive" src="image/user.svg" />
+            <img class="img-responsive" src="image/user2.svg" />
 
             <form action="POST">
-                <input type="text" name="user" id="user" placeholder="نام کاربری" />
-                <input type="password" name="pass" id="pass" placeholder="رمز عبور" />
+                <label for="user">
+                    <input type="text" name="user" id="user" placeholder="نام کاربری" />
+                </label>
+
+                <label for="pass">
+                    <input type="password" name="pass" id="pass" placeholder="رمز عبور" />
+                </label>
+
 
                 <input type="submit" value="ورود" />
             </form>
@@ -228,6 +236,9 @@
         </div>
 
         <div class="modal">
+            <div class="header">
+                <i class="ion-ios-close-outline"></i>
+            </div>
             <div class="text-alert">
 
             </div>
@@ -237,6 +248,7 @@
     </div>
 
         <script src="js/jquery.js"></script>
+        <script src="js/Notification.js"></script>
         <script src="js/touch.js"></script>
         <script src="js/script.js"></script>
         <!--<script type="text/javascript" src="cordova.js"></script>-->
